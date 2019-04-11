@@ -13,7 +13,7 @@ function convert() {
     let rules = [];
     let matchUrl;
     let actionUrl;
-    //for each line in the input - check if there is a match
+    //for each line in the input - check if there is a match the beginning of a rule
     for(let i =0; i <lines.length; i++){
         
         if(isRule === false && lines[i].match(ruleBegin)){
@@ -28,7 +28,9 @@ function convert() {
             if (isRule && lines[i].match(actionTag_re)){
                 actionUrl = actionTag_re.exec(lines[i]);
             }
+            //the end of a rule
             if(isRule && lines[i].match(ruleEnd)){
+                
                 let matches = new Object();
                 matches.matchUrl = matchUrl[1];
                 matches.actionUrl = actionUrl[1];
@@ -52,10 +54,10 @@ function convert() {
         //add content to P element
         newP.appendChild(newContent);
         
-        //ad styling
+        //add styling
         newP.setAttribute("style", "letter-spacing: 1px");
         
-        //add to Dom
+        //display results to Dom
         result.appendChild(newContent)
     }
     
@@ -65,5 +67,5 @@ function convert() {
 function reset() {
     input.value = '';
     result.innerHTML = '';
-    resultText.innerHTML =  'Result Below'
+    resultText.innerHTML =  'Result Below - Total Count: 0'
 }
