@@ -20,7 +20,7 @@ each rule for the conversion to .htaccess rules.
  Then click convert.
  
 Result will be: 
-RewriteRule ^aaup/?$   http://www.wcsuaaup.org [R=301,NC,L]
+RewriteRule ^aaup/?$  http\://www<span></span>.wcsuaaup.org [R=301,NC,L] <br />
 RewriteRule ^academictesting/?$   /testing [R=301,NC,L]
 
 Rewrite rules for pdfs need to be worked on, but this works for any other rule.  
